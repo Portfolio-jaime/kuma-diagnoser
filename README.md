@@ -166,59 +166,6 @@ Para preguntas o comentarios, abre un issue en el repositorio o contacta a los m
 
 ## Diagrama de Flujo
 
-```plaintext
-Inicio
-  ↓
-Validar herramientas necesarias
-  ↓
-¿Herramientas válidas?
-  → No: Mostrar error y detener ejecución
-  → Sí: Continuar
-  ↓
-Validar cluster conectado
-  ↓
-¿Cluster permitido?
-  → No: Mostrar error y detener ejecución
-  → Sí: Continuar
-  ↓
-Mostrar mensaje de éxito
-Fin
-```
-
-@startuml
-left to right direction
-start
-:Validar herramientas necesarias;
-if (¿kubectl está instalado?) then (No)
-  :Mostrar error: "kubectl no está instalado.";
-  stop
-else (Sí)
-  :Continuar;
-endif
-:Validar conexión al cluster Kubernetes;
-if (¿Cluster conectado?) then (No)
-  :Mostrar error: "No se puede conectar al cluster.";
-  stop
-else (Sí)
-  :Continuar;
-endif
-:Validar si el cluster está permitido;
-if (¿Cluster permitido?) then (No)
-  :Mostrar error: "Cluster no permitido.";
-  stop
-else (Sí)
-  :Continuar;
-endif
-:Generar diagnóstico;
-if (¿Exportar diagnóstico?) then (Sí)
-  :Exportar diagnóstico al formato y archivo especificado;
-else (No)
-  :Mostrar diagnóstico en consola;
-endif
-:Mostrar mensaje de éxito: "Diagnóstico completado exitosamente.";
-stop
-@enduml
-
 ```mermaid
 flowchart LR
     Start["Inicio"]
