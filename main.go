@@ -1,25 +1,30 @@
 package main
 
 import (
+	"fmt"
 	"log"
-	"os"
 
-	"github.com/jaimehenao8126/kuma-diagnoser/cmd"
-	"github.com/urfave/cli/v2"
+	"github.com/Portfolio-jaime/kuma-diagnoser/internal"
 )
 
 func main() {
-	app := &cli.App{
-		Name:  "kuma-diagnoser",
-		Usage: "Diagnósticos para Kuma Service Mesh",
-		Commands: []*cli.Command{
-			cmd.CheckCommand,
-			cmd.ExportCommand,
-			cmd.PortForwardCommand,
-		},
+	allowedClusters := []string{
+		"nexus-infradev-eks-cluster",
+		"nexus-infradev2-eks-cluster",
+		"nexus-dev-eks-cluster",
+		"nexus-sit-eks-cluster",
+		"nexus-uat1-eks-cluster",
+		"nexus-pcm-eks-cluster",
+		"nexus-prod-eks-cluster",
 	}
 
-	if err := app.Run(os.Args); err != nil {
-		log.Fatal(err)
+	if err := internal.ValidateTools(); err != nil {
+		log.Fatalf("Error validando herramientas: %v", err)
 	}
+
+	if err := internal.ValidateCluster(allowedClusters); err != nil {
+		log.Fatalf("Error validando cluster: %v", err)
+	}
+
+	fmt.Println("🎉 ¡Todas las validaciones pasaron exitosamente! El entorno está listo para continuar.")
 }

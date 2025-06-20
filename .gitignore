@@ -51,3 +51,7 @@ _test
 
 # Go modules
 /go.sum
+
+# Compiled binary
+*.out
+kuma-diagnoser

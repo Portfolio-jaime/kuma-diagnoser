@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/tu_usuario/kuma-diagnoser/internal"
+	"github.com/Portfolio-jaime/kuma-diagnoser/internal"
 	"github.com/urfave/cli/v2"
 )
 

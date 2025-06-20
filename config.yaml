@@ -1,0 +1,11 @@
+# config.yaml
+
+# Lista de clusters permitidos para validación de contexto kubectl
+allowedClusters:
+  - nexus-infradev-eks-cluster
+  - nexus-infradev2-eks-cluster
+  - nexus-dev-eks-cluster
+  - nexus-sit-eks-cluster
+  - nexus-uat1-eks-cluster
+  - nexus-pcm-eks-cluster
+  - nexus-prod-eks-cluster
