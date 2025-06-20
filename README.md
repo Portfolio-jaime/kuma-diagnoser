@@ -219,6 +219,39 @@ endif
 stop
 @enduml
 
+```mermaid
+flowchart LR
+    Start["Inicio"]
+    A["Validar herramientas necesarias"]
+    B{"¿kubectl está instalado?"}
+    C["Mostrar error: 'kubectl no está instalado'"]
+    D["Continuar"]
+    E["Validar conexión al cluster Kubernetes"]
+    F{"¿Cluster conectado?"}
+    G["Mostrar error: 'No se puede conectar al cluster'"]
+    H["Continuar"]
+    I["Validar si el cluster está permitido"]
+    J{"¿Cluster permitido?"}
+    K["Mostrar error: 'Cluster no permitido'"]
+    L["Continuar"]
+    M["Generar diagnóstico"]
+    N{"¿Exportar diagnóstico?"}
+    O["Exportar diagnóstico al formato y archivo especificado"]
+    P["Mostrar diagnóstico en consola"]
+    Q["Mostrar mensaje de éxito: 'Diagnóstico completado exitosamente'"]
+    End["Fin"]
+
+    Start --> A --> B
+    B -->|No| C --> End
+    B -->|Sí| D --> E --> F
+    F -->|No| G --> End
+    F -->|Sí| H --> I --> J
+    J -->|No| K --> End
+    J -->|Sí| L --> M --> N
+    N -->|Sí| O --> Q
+    N -->|No| P --> Q --> End
+```
+
 ---
 
 ## Mantenimiento
