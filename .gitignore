@@ -1,0 +1,53 @@
+# Binaries for programs and plugins
+/bin/
+/build/
+/dist/
+
+# Output of the go coverage tool
+*.out
+
+# Vendor directory (if you use vendoring)
+vendor/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Kubernetes kubeconfig file (por si acaso)
+.kube/
+
+# dotenv files with secrets
+.env
+
+# Compiled object files, static and dynamic libs
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Temporary files
+*.tmp
+*.temp
+
+# Generated files from go build
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary
+_test
+
+# Go modules
+/go.sum
